@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package proto;
+
+message SinUpRequest {
+  string EmailId = 3;
+  string Password = 4;
+  string Repassword = 5;
+}
+
+message SinUpResponse { 
+  string message = 1; 
+}
+
+message SinInRequest {
+  string EmailId = 1;
+  string Password = 2;
+}
+
+message SinInResponse {
+  string message  = 1;
+}
+
+service AddService {
+  rpc SinUp(SinUpRequest) returns (SinUpResponse);
+  rpc SinIn(SinInRequest) returns (SinInResponse);
+}
